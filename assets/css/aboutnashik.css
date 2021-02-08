@@ -1,0 +1,41 @@
+p 
+    {
+      font-family: verdana;
+      font-size: 15px;
+      text-align: justify;
+    }
+    h2 
+    {
+      font-size: 30px;
+      font-family: verdana;
+      text-align: center;
+    }
+    h3
+    {
+      font-family: verdana;
+      text-align: center;
+      font-size: 15px;
+    }
+    h4
+    {
+      font-family: verdana;
+      font-size: 15px;
+    }
+    li
+    {
+      font-family: verdana;
+      font-size: 15px;
+    }
+    table
+    {
+      font-family: verdana;
+      font-size: 15px;
+    }
+    th
+    {
+      font-family: verdana;
+    }
+    tr
+    {
+      font-family: verdana;
+    }
