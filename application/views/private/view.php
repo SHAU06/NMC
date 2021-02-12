@@ -16,7 +16,7 @@
      </div>
      <div class="card-body">
        <div class="table-responsive">
-         <table class="table table-striped ">
+         <table class="table table-striped " id="sortable">
            <thead class=" text-primary">
              <tr>
                <th>
@@ -107,11 +107,11 @@
              <?php $count = 0;foreach ($UserData as $d): ?>
              <!-- if k is users and verifed then show -->
              <!-- and if k is not users then show -->
-             <?php if ($k !== "users" || $d->verified): $count++;?>
+             <?php if ($k !== "users" || $d->verified): ;?>
 
              <?php if ($this->db->field_exists('active', $k)): ?>
-             <?php if ($d->active): ?>
-             <tr>
+             <?php if ($d->active): $count++?>
+             <tr id="orderby_<?=$d->id?>">
                <td scope="row" width="5%"> <?=$count?></td>
 
                <?php if ($this->db->field_exists("name", $k)): ?>
@@ -177,8 +177,8 @@
              </tr>
              <?php endif?>
              <?php else: ?>
-
-             <tr>
+             <?php $count++;?>
+             <tr id="orderby_<?=$d->id?>">
                <td scope="row" width="5%"> <?=$count?></td>
 
                <?php if ($this->db->field_exists("name", $k)): ?>
@@ -299,7 +299,7 @@
 
 
      <div class="form-check" style="margin: auto 40px;
-    padding-top: 20px;">
+        padding-top: 20px;">
        <label class="form-check-label">
          <input class="form-check-input" type="checkbox" name="status" value="" <?=($status) ? 'checked' : ''?>>
          To activate pop-window please this checkbox.
@@ -323,7 +323,7 @@
      </div>
      <div class="card-body mt-1 w-100">
        <div class="table-responsive">
-         <table class="table table-striped " id="change">
+         <table class="table " id="change">
            <thead class=" text-primary">
              <tr>
                <?php if ($this->db->field_exists("active", $k)): ?> <th>
@@ -377,7 +377,8 @@
                <?php endif?>
 
                <input type="hidden" name="id" value="<?=$d->id?>">
-               <td scope="row"> <?=$count?></td>
+               <td scope="row"> <?=$count?> </td>
+
 
                <?php if ($this->db->field_exists("name", $k)): ?>
                <td width="15%"> <?=$d->name?> </td>
@@ -389,7 +390,7 @@
                <?php if ($this->db->field_exists("email", $k)): ?>
                <td width="20%"> <?=$d->email?> </td>
                <td width="20%"> <?=($d->verified) ? ("<span class='badge badge-pill badge-success'>Verified</span>
-") : (' ')?> </td>
+                          ") : (' ')?> </td>
 
                <?php endif?>
                <?php if ($this->db->field_exists("msg", $k)): ?>

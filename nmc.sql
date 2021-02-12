@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 11, 2021 at 03:58 PM
+-- Generation Time: Feb 12, 2021 at 08:58 AM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -584,16 +584,29 @@ CREATE TABLE `logs` (
   `action` text NOT NULL,
   `username` text NOT NULL,
   `description` text NOT NULL,
-  `userid` int(255) NOT NULL
+  `userid` int(255) NOT NULL,
+  `order_id` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `logs`
 --
 
-INSERT INTO `logs` (`id`, `time`, `action`, `username`, `description`, `userid`) VALUES
-(1, '2021-02-11 14:28:35.086467', 'Deleteing Data', 'root', 'Delete opreation by root in history_culture Section.', 33),
-(2, '2021-02-11 14:28:58.132741', 'Deleteing Data', 'root', 'Delete opreation by root in food-stuff_sec2 Section.', 33);
+INSERT INTO `logs` (`id`, `time`, `action`, `username`, `description`, `userid`, `order_id`) VALUES
+(1, '2021-02-11 14:28:35.086467', 'Deleteing Data', 'root', 'Delete opreation by root in history_culture Section.', 33, 0),
+(2, '2021-02-11 14:28:58.132741', 'Deleteing Data', 'root', 'Delete opreation by root in food-stuff_sec2 Section.', 33, 0),
+(3, '2021-02-11 16:00:04.356270', 'Changeing Active Operation', 'root', 'Changeing opreation by root in our_attractions Section.', 33, 0),
+(4, '2021-02-11 16:00:53.500436', 'Changeing Active Operation', 'root', 'Changeing opreation by root in our_attractions Section.', 33, 0),
+(5, '2021-02-12 06:57:36.485261', 'Changeing Active Operation', 'root', 'Changeing opreation by root in our_attractions Section.', 33, 0),
+(6, '2021-02-12 07:27:07.491875', 'Changeing Active Operation', 'root', 'Changeing opreation by root in our_attractions Section.', 33, 0),
+(7, '2021-02-12 07:51:01.951558', 'Sequence Changed', 'root', 'Sequence Changed by root in nashik_transportation Section.', 33, 0),
+(8, '2021-02-12 07:51:04.811109', 'Sequence Changed', 'root', 'Sequence Changed by root in nashik_transportation Section.', 33, 0),
+(9, '2021-02-12 07:51:07.625840', 'Sequence Changed', 'root', 'Sequence Changed by root in nashik_transportation Section.', 33, 0),
+(10, '2021-02-12 07:51:08.920997', 'Sequence Changed', 'root', 'Sequence Changed by root in nashik_transportation Section.', 33, 0),
+(11, '2021-02-12 07:55:31.187222', 'Sequence Changed', 'root', 'Sequence Changed by root in our_speciality_culture Section.', 33, 0),
+(12, '2021-02-12 07:55:34.251896', 'Sequence Changed', 'root', 'Sequence Changed by root in our_speciality_culture Section.', 33, 0),
+(13, '2021-02-12 07:55:47.031240', 'Sequence Changed', 'root', 'Sequence Changed by root in museums_dest Section.', 33, 0),
+(14, '2021-02-12 07:56:10.088699', 'Sequence Changed', 'root', 'Sequence Changed by root in museums_dest Section.', 33, 0);
 
 -- --------------------------------------------------------
 
@@ -644,12 +657,12 @@ CREATE TABLE `museums_dest` (
 --
 
 INSERT INTO `museums_dest` (`id`, `name`, `map_url`, `img`, `main_category`, `active`, `order_id`) VALUES
-(1, 'PHALKE SMARAK', 'Here you can add location url of place...', 'museums_dest/phalkesmarak2.jpg', '', b'1', NULL),
-(2, 'ARTILLARY MUSEUM', '', 'museums_dest/Artillarymuseam111.png', '', b'1', NULL),
-(3, 'COIN MUSEUM', '', 'museums_dest/coin.png', '', b'1', NULL),
-(4, 'GARGOTI MUSEUM', '', 'museums_dest/gargoti-museum1.png', '', b'1', NULL),
-(5, 'WEGO ART GALLERY', '', 'museums_dest/WeGoArtGallery2.jpg', '', b'1', NULL),
-(6, '360DEGREE OBJECT', '', 'museums_dest/360Degree11.jpg', '', b'1', NULL);
+(1, 'PHALKE SMARAK', 'Here you can add location url of place...', 'museums_dest/phalkesmarak2.jpg', '', b'1', 1),
+(2, 'ARTILLARY MUSEUM', '', 'museums_dest/Artillarymuseam111.png', '', b'1', 0),
+(3, 'COIN MUSEUM', '', 'museums_dest/coin.png', '', b'1', 3),
+(4, 'GARGOTI MUSEUM', '', 'museums_dest/gargoti-museum1.png', '', b'1', 2),
+(5, 'WEGO ART GALLERY', '', 'museums_dest/WeGoArtGallery2.jpg', '', b'1', 4),
+(6, '360DEGREE OBJECT', '', 'museums_dest/360Degree11.jpg', '', b'1', 5);
 
 -- --------------------------------------------------------
 
@@ -671,11 +684,11 @@ CREATE TABLE `nashik_transportation` (
 --
 
 INSERT INTO `nashik_transportation` (`id`, `name`, `des`, `icon`, `active`, `order_id`) VALUES
-(1, '1. Cabs', 'Other than the bus, one can hire an auto rickshaw for travelling short distances within the city. Ola cab service on the mobile application is available in Nashik, one can use that as well.\r\n', 'directions_car', b'1', NULL),
-(2, '2. Rental', 'The best way to explore Nashik is by renting a cab and going to the various tourist attractions. One can cover destinations within the city as well as those on the outskirts. Many private companies offer tour packages for such guided tours. Some of the private companies are Taxi Guide, Savaari, clear car rental and Sai baba travels. These companies offer online booking services also for travellers.\r\n', 'loyalty', b'1', NULL),
-(3, '3. Trekking', 'Within the city there are not many options for trekking but on the outskirts, within a distance of 10- 20 km there are many trekking destinations available. Mumbai road, Trimbakeshwar village have some spots for trekking enthusiasts.\r\n', 'directions_walk', b'1', NULL),
-(4, '4. Local Train\r\n', 'There are no local trains available in Nashik but many people staying in Nashik work in Mumbai and travel daily between the two cities. The daily commuters travel by road to cover the distance till Kasara which is around 70 minutes away. From Kasara one can board the Mumbai local train. Kasara is the last destination of Mumbai local train.\r\n', 'tram', b'1', NULL),
-(5, '5. Metro ', 'There are no metro train services in Nashik.\r\n\r\n', 'directions_railway', b'1', NULL);
+(1, '1. Cabs', 'Other than the bus, one can hire an auto rickshaw for travelling short distances within the city. Ola cab service on the mobile application is available in Nashik, one can use that as well.\r\n', 'directions_car', b'1', 0),
+(2, '2. Rental', 'The best way to explore Nashik is by renting a cab and going to the various tourist attractions. One can cover destinations within the city as well as those on the outskirts. Many private companies offer tour packages for such guided tours. Some of the private companies are Taxi Guide, Savaari, clear car rental and Sai baba travels. These companies offer online booking services also for travellers.\r\n', 'loyalty', b'1', 1),
+(3, '3. Trekking', 'Within the city there are not many options for trekking but on the outskirts, within a distance of 10- 20 km there are many trekking destinations available. Mumbai road, Trimbakeshwar village have some spots for trekking enthusiasts.\r\n', 'directions_walk', b'1', 2),
+(4, '4. Local Train\r\n', 'There are no local trains available in Nashik but many people staying in Nashik work in Mumbai and travel daily between the two cities. The daily commuters travel by road to cover the distance till Kasara which is around 70 minutes away. From Kasara one can board the Mumbai local train. Kasara is the last destination of Mumbai local train.\r\n', 'tram', b'1', 3),
+(5, '5. Metro ', 'There are no metro train services in Nashik.\r\n\r\n', 'directions_railway', b'1', 4);
 
 -- --------------------------------------------------------
 
@@ -754,10 +767,10 @@ CREATE TABLE `our_attractions` (
 --
 
 INSERT INTO `our_attractions` (`id`, `name`, `des`, `map_url`, `img`, `main_category`, `active`, `order_id`) VALUES
-(1, 'TRAMBAKESHWAR', 'It is an ancient Hindu temple in the town of Trimbak, in the Trimbakeshwar tehsil in the Nashik District of Maharashtra, India, 28 km from the city of Nashik and 40 km from nashik road. It is dedicated to the god Shiv and is one of the twelve Jyotirlingas, where the Hindu genealogy registers at Trimbakeshwar, Maharashtra are kept. The origin of the sacred Godavari river is near Trimbak. Kusavarta, a kunda (sacred pond) in the temple premises is the source of the Godavari River.', 'Here you can add location url of place...', 'our_attractions/trambak1.jpg', '', 1, NULL),
-(2, 'PANCHVATI', 'Holy land for the believers of Ramayana, Panchvati attracts a lot of pilgrims. A serene town located near Nasik, the site offers small sightings having a lot of significance in the epic of Ramayana. Given the legend of Panchvati, the place holds a lot oreligious significance even in the present day. Sites sucas the Kalaram Temple and the Sita Gufaa are on everpilgrims list. The Kumbh Mela takes place on the river banks of Godavari, and has a surplus of pilgrims from every corner of world during the occasion.', '', 'our_attractions/1.jpg', '', 1, NULL),
-(3, 'SAPTASHRUNGI GADH', 'This hill range situated 60 km from Nashik and forms a part of the Sahyadri range. It is a blend of the Sanskrit words &#039;sapta&#039; which means seven and &#039;shrung&#039; which means peak.which greatly add to the beauty of the hills. Not only are the hills incredible to look at, but the forests on the hills are loaded with medicinal herbs. In fact, as per the Hindu tradition, when Laxman was lying unconscious and could only be awakened by the &#039;sanjeevani&#039; herb, Lord Hanuman flew to these hills in search of the herb', '', 'our_attractions/VANI1.jpg', '', 1, NULL),
-(32, 'Our Team members', 'Oh ... you want to add description related to your content....', 'Here you can add location url of place...', 'our_attractions/team211.jpg', 'Cultural', 0, NULL);
+(1, 'TRAMBAKESHWAR', 'It is an ancient Hindu temple in the town of Trimbak, in the Trimbakeshwar tehsil in the Nashik District of Maharashtra, India, 28 km from the city of Nashik and 40 km from nashik road. It is dedicated to the god Shiv and is one of the twelve Jyotirlingas, where the Hindu genealogy registers at Trimbakeshwar, Maharashtra are kept. The origin of the sacred Godavari river is near Trimbak. Kusavarta, a kunda (sacred pond) in the temple premises is the source of the Godavari River.', 'Here you can add location url of place...', 'our_attractions/trambak1.jpg', '', 1, 2),
+(2, 'PANCHVATI', 'Holy land for the believers of Ramayana, Panchvati attracts a lot of pilgrims. A serene town located near Nasik, the site offers small sightings having a lot of significance in the epic of Ramayana. Given the legend of Panchvati, the place holds a lot oreligious significance even in the present day. Sites sucas the Kalaram Temple and the Sita Gufaa are on everpilgrims list. The Kumbh Mela takes place on the river banks of Godavari, and has a surplus of pilgrims from every corner of world during the occasion.', '', 'our_attractions/1.jpg', '', 1, 0),
+(3, 'SAPTASHRUNGI GADH', 'This hill range situated 60 km from Nashik and forms a part of the Sahyadri range. It is a blend of the Sanskrit words &#039;sapta&#039; which means seven and &#039;shrung&#039; which means peak.which greatly add to the beauty of the hills. Not only are the hills incredible to look at, but the forests on the hills are loaded with medicinal herbs. In fact, as per the Hindu tradition, when Laxman was lying unconscious and could only be awakened by the &#039;sanjeevani&#039; herb, Lord Hanuman flew to these hills in search of the herb', '', 'our_attractions/VANI1.jpg', '', 1, 1),
+(32, 'Our Team members', 'Oh ... you want to add description related to your content....', 'Here you can add location url of place...', 'our_attractions/team211.jpg', 'Cultural', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -781,8 +794,8 @@ CREATE TABLE `our_events_culture` (
 --
 
 INSERT INTO `our_events_culture` (`id`, `name`, `des`, `map_url`, `img`, `main_category`, `active`, `order_id`) VALUES
-(1, 'Kumbh Mela', 'Millions of people, who gather without any invitation, notice or summon from all over the globe to participate in the stream of knowledge and spirituality on the banks of sacred rivers is Kumbhamela.The Kumbh Mela is an important festival according to Kumbh Melathe Hindu mythology. The festival is one of the largest public gatherings of faith in the world as it draws crores of pilgrims over a course of 48 days to bathe in the holy confluence of rivers-- the Ganga, the Yamuna and the Saraswati. Though the Mela is visited by Hindu devotees from across the world, the congregation mainly includes sadhus, sadhvis, ascetics, kalpvais and pilgrims.', '', 'our_events_culture/KumbhMela1.jpg', '', 1, NULL),
-(2, 'Ram-Rath Yatra     ', 'Nashik City mainly knows as the place where Lord Ramachandra stayed for more than 12 years in the area known as Panchavati. Ramnavmi Ratha Yatra is held during the festival of Janmotsava at the Sansthan Shri Kalaram Mandir at Panchavati which is dedicated to Lord Rama. The festival is which lasts for 15days begin from the first day of Chaitra till Chaitra Purnima. The major attraction of the festival is Ratha Yathra held on the second day, that starts at about 4.30 p.m and continuous till late night with the rath of Lord Rama and Lord Hanuman. The raths have a big wooden round rod known as Dhuri and are pulled with heavy ropes by the rath sevakas.', '', 'our_events_culture/RamRath1.jpeg', '', 1, NULL);
+(1, 'Kumbh Mela', 'Millions of people, who gather without any invitation, notice or summon from all over the globe to participate in the stream of knowledge and spirituality on the banks of sacred rivers is Kumbhamela.The Kumbh Mela is an important festival according to Kumbh Melathe Hindu mythology. The festival is one of the largest public gatherings of faith in the world as it draws crores of pilgrims over a course of 48 days to bathe in the holy confluence of rivers-- the Ganga, the Yamuna and the Saraswati. Though the Mela is visited by Hindu devotees from across the world, the congregation mainly includes sadhus, sadhvis, ascetics, kalpvais and pilgrims.', '', 'our_events_culture/KumbhMela1.jpg', '', 1, 1),
+(2, 'Ram-Rath Yatra     ', 'Nashik City mainly knows as the place where Lord Ramachandra stayed for more than 12 years in the area known as Panchavati. Ramnavmi Ratha Yatra is held during the festival of Janmotsava at the Sansthan Shri Kalaram Mandir at Panchavati which is dedicated to Lord Rama. The festival is which lasts for 15days begin from the first day of Chaitra till Chaitra Purnima. The major attraction of the festival is Ratha Yathra held on the second day, that starts at about 4.30 p.m and continuous till late night with the rath of Lord Rama and Lord Hanuman. The raths have a big wooden round rod known as Dhuri and are pulled with heavy ropes by the rath sevakas.', '', 'our_events_culture/RamRath1.jpeg', '', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -806,12 +819,12 @@ CREATE TABLE `our_speciality_culture` (
 --
 
 INSERT INTO `our_speciality_culture` (`id`, `name`, `img`, `des`, `des1`, `main_category`, `active`, `order_id`) VALUES
-(1, 'NASHIK DHOL  of Nashik', 'our_speciality_culture/nashik-dhol31.png', 'Nashik dhol was prepared by army band which was supposed to play in the prade Band did play it in the republic day parade so it was named”Nashik Dhol”. Tune was played in Nashik as it was invented here.', '&quot;The Tune Of Happiness...&quot;', 0, 1, NULL),
-(2, 'GRAPES', 'our_speciality_culture/grapes5.png', 'Nashik is very famous for its table and wine grapes. The grapes are sure to tickle your taste buds. The black, green, seed and seedless varities are all popular. Grapes from the city are exported to Europe, the Middle East, and Asia.', '\"Nothing great is created suddenly, any more than a bunch of grapes or a fig.\"', 0, 1, NULL),
-(3, 'CHIVDA', 'our_speciality_culture/chivda.jpg', 'Chivda is a traditional Maharashtrian snack. The Nashik Chivda is very unique and delicious. It is a combination of flattened rice (Poha in Marathi), roasted gram, dried coconut, fried curry leaves, peanuts, sometimes cashews and masalas. Some famous brands selling Nashik Chivda are – Kondaji, Madhavji etc.', '\"Sometimes satisfying our hanger is just not enough.. TASTE is very important.\"', 0, 1, NULL),
-(4, 'MISAL', 'our_speciality_culture/misal.jpg', 'The Misal is a delicacy made from the mixture of various sprouts like mung, matki, chana, beans and lots of spicy, oily masala. The Misal Pav is a relatively cheap yet nutritional snack or meal. It is a must must have if you are in Nashik.', '\"It\'s not just Misal, it\'s an experience !!!\"', 0, 1, NULL),
-(5, 'WINE', 'our_speciality_culture/wine2.png', 'Nashik is the “Wine Capital of India”, so how can one miss it when in the city. There are around 33 wineries in and around Nashik. You can get white, red etc types of quality and exclusive Wines in Nashik.', '\"Wine is a passport to World....\"', 0, 1, NULL),
-(6, 'GUAVAS', 'our_speciality_culture/guava4.png', 'Nashik is also known as the “Kitchen garden” of Mumbai and other neighboring cities. The Guavas (Peru in Marathi) from Nashik are popular for their unique taste.', '\"One that would have the fruit must climb the tree.\"', 0, 1, NULL);
+(1, 'NASHIK DHOL  of Nashik', 'our_speciality_culture/nashik-dhol31.png', 'Nashik dhol was prepared by army band which was supposed to play in the prade Band did play it in the republic day parade so it was named”Nashik Dhol”. Tune was played in Nashik as it was invented here.', '&quot;The Tune Of Happiness...&quot;', 0, 1, 0),
+(2, 'GRAPES', 'our_speciality_culture/grapes5.png', 'Nashik is very famous for its table and wine grapes. The grapes are sure to tickle your taste buds. The black, green, seed and seedless varities are all popular. Grapes from the city are exported to Europe, the Middle East, and Asia.', '\"Nothing great is created suddenly, any more than a bunch of grapes or a fig.\"', 0, 1, 2),
+(3, 'CHIVDA', 'our_speciality_culture/chivda.jpg', 'Chivda is a traditional Maharashtrian snack. The Nashik Chivda is very unique and delicious. It is a combination of flattened rice (Poha in Marathi), roasted gram, dried coconut, fried curry leaves, peanuts, sometimes cashews and masalas. Some famous brands selling Nashik Chivda are – Kondaji, Madhavji etc.', '\"Sometimes satisfying our hanger is just not enough.. TASTE is very important.\"', 0, 1, 1),
+(4, 'MISAL', 'our_speciality_culture/misal.jpg', 'The Misal is a delicacy made from the mixture of various sprouts like mung, matki, chana, beans and lots of spicy, oily masala. The Misal Pav is a relatively cheap yet nutritional snack or meal. It is a must must have if you are in Nashik.', '\"It\'s not just Misal, it\'s an experience !!!\"', 0, 1, 4),
+(5, 'WINE', 'our_speciality_culture/wine2.png', 'Nashik is the “Wine Capital of India”, so how can one miss it when in the city. There are around 33 wineries in and around Nashik. You can get white, red etc types of quality and exclusive Wines in Nashik.', '\"Wine is a passport to World....\"', 0, 1, 5),
+(6, 'GUAVAS', 'our_speciality_culture/guava4.png', 'Nashik is also known as the “Kitchen garden” of Mumbai and other neighboring cities. The Guavas (Peru in Marathi) from Nashik are popular for their unique taste.', '\"One that would have the fruit must climb the tree.\"', 0, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -1327,7 +1340,7 @@ ALTER TABLE `how_to_reach`
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `mountains_dest`

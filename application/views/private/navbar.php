@@ -9,7 +9,7 @@
           <span class="navbar-toggler-bar bar3"></span>
         </button>
       </div>
-      <a class="navbar-brand" href="#">Dashboard hi <?=$this->session->id?> <?=$this->session->username?></a>
+      <a class="navbar-brand" href="#">Dashboard </a>
     </div>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"

@@ -7,9 +7,29 @@ class WorkM extends CI_Model
     //To return the row from table
     public function GetRow($tablename, $id)
     {
-        $query = $this->db->where('id', $id)->get($tablename);
+        $query = $this->db->where('id', $id)->order_by('order_id')->get($tablename);
         // $query = $this->db->where('id', $id)->order_by('title', 'DESC')->get($tablename);
         $result = $query->result();
+        return $result;
+    }
+
+    public function ChangedOrder($tablename, $data)
+    {
+        foreach ($data as $key => $id) {
+            $result = $this->db->where('id', $id)->update($tablename, ["order_id" => $key]);
+
+        }
+        $logs = [
+            "username" => $this->session->username,
+            "userid" => $this->session->id,
+            "action" => "Sequence Changed",
+            "description" => "Sequence Changed by " . $this->session->username . " in " . $tablename . " Section.",
+        ];
+        $this->db->insert('logs', $logs);
+
+        // $query = $this->db->where('id', $id)->get($tablename);
+        // // $query = $this->db->where('id', $id)->order_by('title', 'DESC')->get($tablename);
+        // $result = $query->result();
         return $result;
     }
 
@@ -166,7 +186,16 @@ class WorkM extends CI_Model
     public function Gets($tablename) //To retrive table data
 
     {
-        $query = $this->db->get($tablename);
+        $query = "";
+        if ($tablename === "logs") {
+            $query = $this->db->order_by('time', 'DESC')->get($tablename);
+
+        } elseif ($this->db->field_exists('order_id', $tablename)) {
+            $query = $this->db->order_by('order_id')->get($tablename);
+        } else {
+            $query = $this->db->get($tablename);
+        }
+
         $result = $query->result();
         return $result;
     }
