@@ -93,7 +93,7 @@ class MainC extends CI_Controller{
         $N = explode("%20",$Name);
         //  echo $N."<br><br>";
         $data = $this->WorkM->GetName($N[0]);
-        // print($data);
+        // print_r($data);
             
             $res=$data[0]->main_category;
             $tabledata=$this->WorkM->Suggest($res);       

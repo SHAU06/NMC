@@ -89,7 +89,7 @@
 				                    <h2 class="mb-3"><?= $sec3[0]->name?></h2>
 				                    <h3><?= $sec3[0]->des1?></h3> 
 				                    <p class="my-4"  style="font-size: 125%;margin-left: 18px; text-align:justify; margin-right: 18px;" ><?= $sec3[0]->des ?></p>
-				                    <a href="<?= base_url('MainC/Places/').$sec3[0]->name?>">Read More</a>
+				                    <!-- <a href="">Read More</a> -->
 			                    </div>
 			                    <div class="col-lg-6 mt-lg-0 mt-5 welcome-grid3 d-none d-lg-block" >
 				                    <div class="position mx-2 my-2 ">
@@ -106,7 +106,7 @@
 				                    <h2 class="mb-3"><?= $sec3[$i]->name?></h2>
 				                    <h3><?= $sec3[$i]->des1 ?></h3>
 				                    <p class="my-4" style="font-size: 125%;margin-left: 18px; text-align:justify;margin-right: 18px;"><?= $sec3[$i]->des?></p>
-				                    <a href="<?= base_url('MainC/Places/').$sec3[$i]->name?>">Read More</a>
+				                    <!-- <a href="">Read More</a> -->
 			                    </div>
 			                    <div class="col-lg-6 mt-lg-0 mt-5 welcome-grid3 d-none d-lg-block">
 				                    <div class="position mx-2 my-2">

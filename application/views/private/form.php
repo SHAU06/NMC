@@ -295,7 +295,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Map Url : </label>
-                                <textarea class="form-control textarea" name="map_url" id="map_url">Here you can add location url of place...</textarea>
+                                <textarea class="form-control textarea" name="map_url" id="map_url"><?= $UserData[0]->map_url?></textarea>
                             </div>
                         </div>
                     </div>

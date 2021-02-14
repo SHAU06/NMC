@@ -17,8 +17,7 @@
 			</div> <!-- sidebar -->
 			<div class="col-lg-4 col-md-7 pt-3 ml-auto mr-auto pt-lg-3 d-none d-lg-block">
 				<div class="mt-5 w-100">
-					<iframe src="https://www.google.com/maps/d/embed?mid=1f5HjAtiHG-tvu9ctnXuZ4HTd63hxo0fl" width="100%"
-						height="87%" frameborder="0" allowfullscreen=""></iframe>
+					<iframe src="<?= $data[0]->map_url?>" width="100%" height="87%" frameborder="0" allowfullscreen=""></iframe>
 				</div>
 			</div>
 
